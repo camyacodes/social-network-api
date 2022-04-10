@@ -31,7 +31,7 @@ module.exports = {
     // Delete a user
     deleteUser(req, res) {
       User.findOneAndDelete({ _id: req.params.userId })
-        .then(() => res.json({ message: 'Thought deleted!' }))
+        .then(() => res.json({ message: 'User deleted!' }))
         .catch((err) => res.status(500).json(err));
     },
     // Update a user
@@ -71,7 +71,7 @@ module.exports = {
             {$pull: {friends: req.params.friendId}},
             {runValidators: true, new: true}
         )
-        .then(() => res.json({ message: 'Reaction deleted!' }))
+        .then(() => res.json({ message: 'Friend deleted!' }))
         .catch((err) => res.status(500).json(err));
     }
 
